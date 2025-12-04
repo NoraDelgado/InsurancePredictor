@@ -1,0 +1,97 @@
+# Application Configuration
+# Health Insurance Cost Predictor
+
+app:
+  name: "Insurance Cost Predictor"
+  version: "1.0.0"
+  environment: "development"  # development, staging, production
+  debug: true
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  timeout: 30
+  cors:
+    allow_origins:
+      - "*"
+    allow_methods:
+      - "GET"
+      - "POST"
+      - "OPTIONS"
+    allow_headers:
+      - "*"
+
+# Model Configuration
+model:
+  path: "models/trained/best_model.pkl"
+  preprocessor_path: "models/artifacts/preprocessor.pkl"
+  feature_engineer_path: "models/artifacts/feature_engineer.pkl"
+  
+  # Model training parameters
+  training:
+    test_size: 0.2
+    random_state: 42
+    cv_folds: 5
+    
+  # Hyperparameter optimization
+  optimization:
+    n_trials: 50
+    timeout: 3600  # seconds
+    
+  # Feature configuration
+  features:
+    numeric:
+      - age
+      - bmi
+      - bloodpressure
+      - children
+    categorical:
+      - gender
+      - diabetic
+      - smoker
+    target: claim
+
+# Data Configuration
+data:
+  raw_path: "data/raw/insurance.csv"
+  processed_path: "data/processed/"
+  
+  validation:
+    age_range: [18, 100]
+    bmi_range: [10.0, 60.0]
+    bloodpressure_range: [60, 200]
+    children_range: [0, 10]
+
+# Preprocessing Configuration
+preprocessing:
+  scaling_method: "robust"  # robust, standard
+  imputer_method: "knn"
+  imputer_neighbors: 5
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
+
+# MLflow Configuration
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "insurance_predictor"
+  
+# Monitoring Configuration
+monitoring:
+  prometheus_port: 9090
+  health_check_interval: 30
+
+# Security Configuration
+security:
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+  api_key:
+    enabled: false
+    header_name: "X-API-Key"
+

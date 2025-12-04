@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # API Service
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    container_name: insurance-predictor-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+      - MODEL_PATH=/app/models/trained/best_model.pkl
+      - PREPROCESSOR_PATH=/app/models/artifacts/preprocessor.pkl
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./models:/app/models:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - insurance-network
+
+  # Frontend Service (when implemented)
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: insurance-predictor-frontend
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - API_URL=http://api:8000
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - insurance-network
+
+  # Nginx Reverse Proxy (for production)
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: insurance-predictor-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./nginx/ssl:/etc/nginx/ssl:ro
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - insurance-network
+
+networks:
+  insurance-network:
+    driver: bridge
+
+volumes:
+  model-data:
+

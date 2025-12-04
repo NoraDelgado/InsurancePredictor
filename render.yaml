@@ -1,0 +1,15 @@
+# Render.com deployment configuration
+# This file tells Render how to deploy your backend API
+
+services:
+  - type: web
+    name: insurance-predictor-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+    healthCheckPath: /health
+
