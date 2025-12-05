@@ -3,116 +3,100 @@
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776ab?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-14+-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-2.0+-red?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML-red?style=for-the-badge)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Deployed-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
-**Predict health insurance costs with state-of-the-art machine learning**
+### Predict health insurance costs using Machine Learning
 
-[🌐 Live Demo](https://noradelgado.github.io/InsurancePredictor/) • [📖 Documentation](#documentation) • [🚀 Quick Start](#quick-start) • [📡 API Reference](#api-reference)
+[🌐 **Live Demo**](https://noradelgado.github.io/InsurancePredictor/) • [📡 **API Docs**](https://insurance-predictor-api.onrender.com/docs) • [👩‍💻 **About Me**](https://noradelgado.github.io/)
 
 </div>
 
 ---
 
-## 📋 Overview
+## 🎯 Project Overview
 
-This project predicts individual medical charges (claims) billed by health insurance based on demographic and health factors. It combines advanced machine learning techniques with a modern, responsive web application to deliver accurate predictions.
+A full-stack machine learning application that predicts individual health insurance costs based on demographic and health factors. This project demonstrates end-to-end ML development from data analysis to production deployment.
 
 ### ✨ Key Features
 
-- 🎯 **High Accuracy** - R² ~0.80 using optimized XGBoost model
-- ⚡ **Fast API** - Sub-200ms response times with FastAPI backend
-- 🎨 **Modern UI** - Beautiful, responsive Next.js frontend with glass-morphism design
-- 🌐 **Live Demo** - Deployed on GitHub Pages + Render.com
-- 📊 **Feature Importance** - Smoking status is the #1 predictor (87% importance)
+| Feature | Description |
+|---------|-------------|
+| 🤖 **Machine Learning** | XGBoost model with 80% R² accuracy |
+| ⚡ **Fast API** | RESTful API with FastAPI (sub-200ms responses) |
+| 🎨 **Modern UI** | Responsive Next.js frontend with glass-morphism design |
+| 🚀 **Production Deployed** | Live on GitHub Pages + Render.com |
+| 📊 **Data-Driven** | Trained on 1,340 real insurance records |
 
 ---
 
 ## 🌐 Live Demo
 
-**Frontend**: [https://noradelgado.github.io/InsurancePredictor/](https://noradelgado.github.io/InsurancePredictor/)
+<div align="center">
 
-**API Docs**: [https://insurance-predictor-api.onrender.com/docs](https://insurance-predictor-api.onrender.com/docs)
+### **Try it now: [https://noradelgado.github.io/InsurancePredictor/](https://noradelgado.github.io/InsurancePredictor/)**
+
+</div>
+
+| Endpoint | URL |
+|----------|-----|
+| 🖥️ **Web App** | https://noradelgado.github.io/InsurancePredictor/ |
+| 📡 **API** | https://insurance-predictor-api.onrender.com |
+| 📖 **API Docs** | https://insurance-predictor-api.onrender.com/docs |
 
 ---
 
-## 🚀 Quick Start
+## 🛠️ Tech Stack
 
-### Prerequisites
+### Backend
+- **Python 3.11** - Core programming language
+- **FastAPI** - Modern, fast web framework for APIs
+- **XGBoost** - Gradient boosting ML algorithm
+- **scikit-learn** - Data preprocessing & model evaluation
+- **Pandas/NumPy** - Data manipulation
+- **Uvicorn** - ASGI server
 
-- Python 3.11+
-- Node.js 18+
-- npm
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Smooth animations
+- **React Hook Form** - Form handling with validation
 
-### Installation
-
-```powershell
-# Clone the repository
-git clone https://github.com/NoraDelgado/InsurancePredictor.git
-cd InsurancePredictor
-
-# Create virtual environment
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Train the model
-python train_model.py
-
-# Install frontend dependencies
-cd frontend
-npm install
-cd ..
-```
-
-### Running Locally
-
-**Terminal 1: Start API server**
-```powershell
-.\venv\Scripts\Activate.ps1
-uvicorn api.main:app --reload --port 8000
-```
-
-**Terminal 2: Start frontend**
-```powershell
-cd frontend
-npm run dev
-```
-
-Access the application at `http://localhost:3000`
+### Deployment
+- **GitHub Pages** - Frontend hosting
+- **Render.com** - Backend API hosting
+- **GitHub Actions** - CI/CD pipeline
 
 ---
 
 ## 📊 Model Performance
 
-| Metric | Value |
+The XGBoost model was trained on insurance data with the following results:
+
+| Metric | Score |
 |--------|-------|
 | **R² Score** | 0.80 |
 | **MAE** | $4,108 |
 | **RMSE** | $5,727 |
-| **Training Samples** | 1,072 |
-| **Test Samples** | 268 |
 
 ### Feature Importance
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ Smoker             ████████████████████████████████  87.1%  │
-│ Blood Pressure     ███                               4.1%   │
-│ BMI                ██                                2.5%   │
-│ Region             █                                 1.6%   │
-│ Children           █                                 1.3%   │
-│ Gender             █                                 1.2%   │
-│ Age                █                                 1.1%   │
-│ Diabetic           █                                 1.0%   │
-└─────────────────────────────────────────────────────────────┘
+Smoker            ████████████████████████████████  87.1%
+Blood Pressure    ███                                4.1%
+BMI               ██                                 2.5%
+Region            █                                  1.6%
+Children          █                                  1.3%
+Gender            █                                  1.2%
+Age               █                                  1.1%
+Diabetic          █                                  1.0%
 ```
 
-**Key Insight**: Smoking status is by far the most important factor, accounting for 87% of the prediction power!
+**Key Insight:** Smoking status is the dominant predictor, accounting for 87% of the prediction power. Smokers pay significantly higher insurance premiums.
 
 ---
 
@@ -120,59 +104,83 @@ Access the application at `http://localhost:3000`
 
 ```
 InsurancePredictor/
-├── 📁 api/                    # FastAPI backend
-│   ├── main.py                # API entry point
-│   └── 📁 schemas/            # Pydantic models
-├── 📁 frontend/               # Next.js frontend
-│   ├── 📁 src/
-│   │   ├── 📁 components/     # React components
-│   │   ├── 📁 lib/            # API client & types
-│   │   └── 📁 app/            # Next.js pages
-│   └── package.json
-├── 📁 models/                 # Saved models
-│   ├── 📁 trained/            # Production models
-│   └── 📁 artifacts/          # Preprocessing artifacts
-├── 📁 data/raw/               # Dataset
+├── 📁 api/                    # FastAPI Backend
+│   ├── main.py                # API endpoints & logic
+│   └── schemas/               # Pydantic models
+│
+├── 📁 frontend/               # Next.js Frontend
+│   └── src/
+│       ├── app/               # Next.js pages
+│       ├── components/        # React components
+│       └── lib/               # API client & types
+│
+├── 📁 models/                 # Trained ML Models
+│   ├── trained/               # Production model (.pkl)
+│   └── artifacts/             # Scaler, encoders
+│
+├── 📁 data/raw/               # Training dataset
+├── 📁 src/                    # ML source code
 ├── train_model.py             # Model training script
 ├── requirements.txt           # Python dependencies
-├── render.yaml                # Render.com deployment config
 └── README.md                  # This file
 ```
 
 ---
 
+## 🚀 Run Locally
+
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/NoraDelgado/InsurancePredictor.git
+cd InsurancePredictor
+
+# Set up Python environment
+python -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+# Train the model
+python train_model.py
+
+# Start the API (Terminal 1)
+uvicorn api.main:app --reload --port 8000
+
+# Start the frontend (Terminal 2)
+cd frontend
+npm install
+npm run dev
+```
+
+Visit `http://localhost:3000` to use the app locally.
+
+---
+
 ## 📡 API Reference
-
-### Base URL
-
-- **Local**: `http://localhost:8000`
-- **Production**: `https://insurance-predictor-api.onrender.com`
 
 ### Endpoints
 
 #### Health Check
-
 ```http
 GET /health
 ```
-
-**Response:**
 ```json
-{
-  "status": "healthy",
-  "model_loaded": true,
-  "model_version": "1.0.0"
-}
+{"status": "healthy", "model_loaded": true, "model_version": "1.0.0"}
 ```
 
 #### Predict Insurance Cost
-
 ```http
 POST /predict
 Content-Type: application/json
 ```
 
-**Request Body:**
+**Request:**
 ```json
 {
   "age": 35,
@@ -196,57 +204,66 @@ Content-Type: application/json
 
 ### Input Validation
 
-| Field | Type | Constraints |
-|-------|------|-------------|
-| `age` | number | 18-100 |
-| `gender` | string | "male" \| "female" |
-| `bmi` | number | 10.0-60.0 |
-| `bloodpressure` | integer | 60-200 |
-| `diabetic` | string | "Yes" \| "No" |
-| `children` | integer | 0-10 |
-| `smoker` | string | "Yes" \| "No" |
-| `region` | string | "northeast" \| "northwest" \| "southeast" \| "southwest" |
+| Field | Type | Valid Values |
+|-------|------|--------------|
+| age | number | 18-100 |
+| gender | string | "male", "female" |
+| bmi | number | 10.0-60.0 |
+| bloodpressure | number | 60-200 |
+| diabetic | string | "Yes", "No" |
+| children | number | 0-10 |
+| smoker | string | "Yes", "No" |
+| region | string | "northeast", "northwest", "southeast", "southwest" |
 
 ---
 
-## 🚀 Deployment
+## 📈 What I Learned
 
-### Frontend (GitHub Pages)
+This project helped me develop skills in:
 
-The frontend is automatically deployed to GitHub Pages when you push to the `main` branch.
+- **Machine Learning Pipeline**: Data cleaning, feature engineering, model training, and evaluation
+- **API Development**: Building RESTful APIs with FastAPI and proper error handling
+- **Frontend Development**: Creating responsive UIs with React/Next.js and TypeScript
+- **DevOps**: Setting up CI/CD pipelines, containerization concepts, and cloud deployment
+- **Full-Stack Integration**: Connecting frontend to backend with proper CORS handling
 
-**URL**: `https://noradelgado.github.io/InsurancePredictor/`
+---
 
-### Backend (Render.com)
+## 🔮 Future Improvements
 
-1. Go to [Render.com](https://render.com) and sign up
-2. Click **New** → **Web Service**
-3. Connect your GitHub repository
-4. Render will auto-detect the `render.yaml` and deploy
+- [ ] Add SHAP explanations for individual predictions
+- [ ] Implement model retraining pipeline
+- [ ] Add user authentication
+- [ ] Create comparison tool for different scenarios
+- [ ] Add visualization dashboard
 
-**URL**: `https://insurance-predictor-api.onrender.com`
+---
+
+## 👩‍💻 About the Author
+
+<!-- 🔴 FILL IN YOUR INFO BELOW 🔴 -->
+
+**Nora Delgado**
+
+I'm a student pursuing a Bachelor's degree in Information Science with a concentration in Data Science and Analytics. I'm passionate about solving complex problems with data and building practical applications.
+
+- 🌐 **Portfolio**: [noradelgado.github.io](https://noradelgado.github.io/)
+- 💼 **LinkedIn**: [linkedin.com/in/nora-delgado](https://www.linkedin.com/in/nora-delgado/)  <!-- 🔴 UPDATE WITH YOUR ACTUAL LINKEDIN URL 🔴 -->
+- 📧 **Email**: noradelgadobusot@gmail.com
+- 📍 **Location**: Tampa, Florida
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
----
-
-## 📞 Contact
-
-- **Author**: Nora Delgado
-- **Email**: noradelgadobusot@gmail.com
-- **LinkedIn**: [Nora Delgado](https://www.linkedin.com/in/noradelgado)
-- **Portfolio**: [noradelgado.github.io](https://noradelgado.github.io)
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**⭐ Star this repo if you find it helpful!**
+### ⭐ If you found this project helpful, please give it a star!
 
-Made with ❤️ by Nora Delgado
+Made with ❤️ by [Nora Delgado](https://noradelgado.github.io/)
 
 </div>
