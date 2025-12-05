@@ -229,28 +229,16 @@ This project helped me develop skills in:
 
 ---
 
-## 🔮 Future Improvements
-
-- [ ] Add SHAP explanations for individual predictions
-- [ ] Implement model retraining pipeline
-- [ ] Add user authentication
-- [ ] Create comparison tool for different scenarios
-- [ ] Add visualization dashboard
-
----
-
 ## 👩‍💻 About the Author
-
-<!-- 🔴 FILL IN YOUR INFO BELOW 🔴 -->
 
 **Nora Delgado**
 
-I'm a student pursuing a Bachelor's degree in Information Science with a concentration in Data Science and Analytics. I'm passionate about solving complex problems with data and building practical applications.
+I'm a recent graduate with a Bachelor's degree in Information Science with a concentration in Data Science and Analytics. I'm passionate about solving puzzles, learning about science, and helping others grow.
 
 - 🌐 **Portfolio**: [noradelgado.github.io](https://noradelgado.github.io/)
-- 💼 **LinkedIn**: [linkedin.com/in/nora-delgado](https://www.linkedin.com/in/nora-delgado/)  <!-- 🔴 UPDATE WITH YOUR ACTUAL LINKEDIN URL 🔴 -->
+- 💼 **LinkedIn**: [linkedin.com/in/nora-delgado](https://www.linkedin.com/in/noradelgadobusot/) 
 - 📧 **Email**: noradelgadobusot@gmail.com
-- 📍 **Location**: Tampa, Florida
+- 📍 **Location**: Fort Myers, Florida
 
 ---
 
