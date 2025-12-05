@@ -1,15 +1,15 @@
 # Core API dependencies
-fastapi==0.109.0
-uvicorn==0.27.0
-pydantic==2.5.3
+fastapi
+uvicorn[standard]
+pydantic
 
 # ML dependencies
-scikit-learn==1.4.0
-xgboost==2.0.3
-pandas==2.1.4
-numpy==1.26.3
-joblib==1.3.2
+scikit-learn
+xgboost
+pandas
+numpy
+joblib
 
-# HTTP client for health checks
-httpx==0.26.0
-python-multipart==0.0.6
+# HTTP client
+httpx
+python-multipart
